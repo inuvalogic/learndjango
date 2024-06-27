@@ -1,0 +1,11 @@
+<h1>{{ title }}</h1>
+
+{% if news %}
+    <ul>
+    {% for row in news %}
+        <li><a href="{% url 'news:news-detail' row.slug %}">{{ row.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No news available</p>
+{% endif %}
