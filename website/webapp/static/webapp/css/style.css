@@ -1,0 +1,10 @@
+div#gunung {
+    background: white url("../images/gunung.jpg") no-repeat;
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+}
+
+li a {
+    color: green;
+}

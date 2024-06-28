@@ -1,6 +1,6 @@
 from django.urls import path, re_path, register_converter, include
 
-from . import views, converters, user
+from . import views, converters, user, http, errors, posts
 
 register_converter(converters.FourDigitYearConverter, "yyyy")
 
@@ -43,4 +43,22 @@ urlpatterns = [
 
     # Namespace
     path("news/", include("webapp.news_urls")),
+
+    # HTTP Methods
+    path("http/request", http.request),
+    path("http/response", http.response),
+    path("http/json", http.json),
+    path("http/redirect", http.redirect),
+
+    # Error
+    path("http/403", errors.raise403),
+    path("http/403", errors.raise403),
+    path("http/400", errors.raise400),
+    path("http/500", errors.raise500),
+    path("http/403", errors.raise403),
+
+    # Template
+    path("posts/", include("webapp.posts_urls")),
+    # path("posts/", include("webapp.posts_generic_urls")),
+
 ]
