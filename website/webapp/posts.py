@@ -19,7 +19,6 @@ def index(request):
 def index_alt(request):
     latest_blog_list = Blog.objects.order_by("-pub_date")[:5]
     categories = Category.objects.all()
-    template = loader.get_template("blog/index.html")
     context = {
         "categories": categories,
         "latest_blog_list": latest_blog_list,

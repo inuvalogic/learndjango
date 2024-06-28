@@ -1,11 +1,12 @@
 from django.urls import path, re_path, register_converter, include
 
-from . import views, converters, user, http, errors, posts
+from . import views, converters, user, http, errors
 
 register_converter(converters.FourDigitYearConverter, "yyyy")
 
 urlpatterns = [
     path("", views.index, name="index"),
+    path("about", views.about, name="about"),
 
     # URLconf
     path("blogs/category-name/", views.list_by_category),
@@ -47,18 +48,16 @@ urlpatterns = [
     # HTTP Methods
     path("http/request", http.request),
     path("http/response", http.response),
-    path("http/json", http.json),
     path("http/redirect", http.redirect),
+    path("http/json", http.json),
 
     # Error
-    path("http/403", errors.raise403),
-    path("http/403", errors.raise403),
-    path("http/400", errors.raise400),
-    path("http/500", errors.raise500),
-    path("http/403", errors.raise403),
+    path("error/404", errors.custom_404),
+    path("error/500", errors.custom_500),
+    path("error/403", errors.custom_403),
+    path("error/400", errors.custom_400),
 
     # Template
-    path("posts/", include("webapp.posts_urls")),
-    # path("posts/", include("webapp.posts_generic_urls")),
-
+    # path("posts/", include("webapp.posts_urls")),
+    path("posts/", include("webapp.posts_generic_urls")),
 ]

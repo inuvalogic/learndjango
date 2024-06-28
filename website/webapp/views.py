@@ -4,6 +4,9 @@ from django.http import HttpResponse
 def index(request):
     return HttpResponse("hello world")
 
+def about(request):
+    return HttpResponse("about us")
+
 def list_by_category(request):
     return HttpResponse("list_by_category")
 
@@ -37,11 +40,11 @@ def regex(request, page_number):
 def list_custom(request, year):
     return HttpResponse("list_custom " + str(year))
 
-def page(request, num=1):
-    return HttpResponse("page " + str(num))
-
 def articles(request):
     return HttpResponse("article list")
+
+def page(request, num=1):
+    return HttpResponse("page " + str(num))
 
 def other_path(request):
     return HttpResponse("other_path")

@@ -1,4 +1,4 @@
-from django.urls import path, re_path, register_converter, include
+from django.urls import path
 
 from . import posts
 

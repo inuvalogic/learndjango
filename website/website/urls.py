@@ -17,12 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-handler404 = "webapp.errors.custom_404"
-handler500 = "webapp.errors.custom_500"
-handler403 = "webapp.errors.custom_403"
-handler400 = "webapp.errors.custom_400"
-
 urlpatterns = [
-    path("", include("webapp.urls")),
+    path('', include('webapp.urls')),
     path('admin/', admin.site.urls),
 ]
